@@ -40,3 +40,5 @@ if fruityvice_response.status_code == 200:
     st.dataframe(fruityvice_normalized)
 else:
     st.error(f"Failed to fetch data for the fruit: {fruit_choice}")
+
+import snowflake.connector
