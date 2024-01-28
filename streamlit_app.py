@@ -23,14 +23,18 @@ st.dataframe(fruits_to_show)
 
 # Fruityvice fruit advice
 st.header("Fruityvice Fruit Advice!")
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+
+# Get fruit data from Fruityvice API
+fruit_choice = st.text_input('What fruit would you like information about?', 'kiwi')
+fruityvice_response = requests.get(f"https://fruityvice.com/api/fruit/{fruit_choice}")
 
 if fruityvice_response.status_code == 200:
-    st.text(fruityvice_response.text)
+    # Normalize the JSON response data for display
+    # This converts the JSON data into a flat pandas DataFrame
+    fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+    
+    # Display the normalized data in a Streamlit dataframe
+    # This creates a table in the app showing the fruit information
+    st.dataframe(fruityvice_normalized)
 else:
-    st.error("Failed to fetch data from Fruityvice.")
-
-# write your own comment -what does the next line do? 
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-# write your own comment - what does this do?
-streamlit.dataframe(fruityvice_normalized)
+    st.error("Failed to fetch data for the fruit: " + fruit_choice)
