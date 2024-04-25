@@ -47,7 +47,7 @@ st.header("Superset Report")
 superset_html = """
 <iframe width="600" height="400" src="https://superset.apache.org//view?r=eyJrIjoiMmIxNGNlMWMtNjRiMC00MGM3LTg4MjctM2RiYzY0NDI0ZTY0IiwidCI6IjViNDRjYjQyLTBlNGItNGI1ZS05NDA4LTFjZjFiMDc0ZGViMiIsImMiOjl9" frameborder="0" allowFullScreen="true"></iframe>
 """
-components.html(powerbi_html, height=400)
+components.html(Bclever_html, height=400)
 
 # Connect to Snowflake
 my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
