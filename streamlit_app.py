@@ -43,7 +43,7 @@ else:
     st.error(f"Failed to fetch data for the fruit: {fruit_choice}")
 
 # Superset Embedding
-st.header("Superset Report")
+st.header("Bclever Report")
 superset_html = """
 <iframe width="600" height="400" src="https://superset.apache.org//view?r=eyJrIjoiMmIxNGNlMWMtNjRiMC00MGM3LTg4MjctM2RiYzY0NDI0ZTY0IiwidCI6IjViNDRjYjQyLTBlNGItNGI1ZS05NDA4LTFjZjFiMDc0ZGViMiIsImMiOjl9" frameborder="0" allowFullScreen="true"></iframe>
 """
